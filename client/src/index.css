@@ -1,0 +1,48 @@
+:root {
+    --primary: #00008B;
+    --secondary: #eee;
+}
+* {
+    margin: 0;
+    padding: 0;    
+}
+/* Header */
+.header {  
+    display: flex ;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #00008B;
+    padding-top: 5px;
+    position: sticky;
+    height: 150px;
+    font-size: large;
+    color: #eee;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header_left {
+    margin-left: 25px;
+}
+.header_middle a {
+    display: inline-block;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.header_right {
+    margin-right: 25px;
+}
+/* search info */
+
+.searchInfo {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+.searchInfo input {
+    border-color: #eee;
+    border-radius: 25px;
+    width: 350px;
+    text-align: center;
+    height: 60px;
+}
