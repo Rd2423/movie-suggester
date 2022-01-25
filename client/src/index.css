@@ -27,10 +27,16 @@
     display: inline-block;
     margin-left: 8px;
     cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    color: #eee;
 }
 
 .header_right {
     margin-right: 25px;
+}
+.header_right a {
+    color: #eee;
 }
 /* search info */
 
@@ -38,6 +44,8 @@
     margin-top: 5px;
     display: flex;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.541);
+    width: 100%;
 }
 .searchInfo input {
     border-color: #eee;
@@ -45,4 +53,33 @@
     width: 350px;
     text-align: center;
     height: 60px;
+    
+}
+.searchInfo input::placeholder {
+    color: #7378c5;
+}
+.searchInfo button {
+    margin-left: 10px;
+    border-radius: 30px;
+    width: 100px;
+    height: 60px;
+    border: transparent;
+    background-color: rgb(64, 152, 224);
+    color: var(--secondary);
+    cursor: pointer;
+}
+
+.searchInfo button:hover {
+    background-color: var(--primary);
+}
+.searchInfo button:active {
+    background-color: var(--primary);
+    box-shadow: 0 5px #666;
+    transform: translate(4px);
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
 }

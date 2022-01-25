@@ -13,7 +13,7 @@ function Header() {
         <a href="">TV SHOWS</a>
       </div>
       <div className="header_right">
-          <h3>Login</h3>
+          <a>Login</a>
       </div>
     </header>
   );
