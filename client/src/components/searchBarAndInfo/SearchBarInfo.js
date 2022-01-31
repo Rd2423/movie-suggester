@@ -16,4 +16,4 @@ function searchInfo () {
             </div>
     )
 }
-export default searchInfo
+export default searchInfo;
