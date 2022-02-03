@@ -41,7 +41,7 @@ function Movies () {
                 <div className="movies">
                 <img key={item.poster_path}src={"https://image.tmdb.org/t/p/w200" + item.poster_path} />
                 <h3 key={item.original_title}>{item.original_title}</h3>
-                {/* <p key={item.overview}>{item.overview}</p> */}
+                <p key={item.overview}>{item.overview}</p>
                 </div>
             ) )}
             
