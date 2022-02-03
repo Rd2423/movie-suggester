@@ -1,56 +1,54 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
-class Movies extends React.Component {
-  constructor(props) {
-    super(props);
+function Movies () {
+    
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [results, setResults] = useState('');
 
-    this.state = {
-      error: null,
-      items: [],
-      isLoaded: false,
-    };
-  }
-  componentDidMount() {
-    fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=1469c0124feb2071e2822b7f4023b656&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .catch((err) => {console.log(err)})
-      .then((result) => {
-        this.setState({ items: result.items, isLoaded: true });
-      },
-      
-      (error) => {
-          this.setState({
-              isLoaded: true,
-              error
-          });
-      }
-      );
-  }
-  render() {
-    const { error, items, isLoaded } = this.state;
-    if (error){return <div>Error: {error.message}</div>} 
-    else if (!isLoaded){
+    useEffect(() => {
+        fetch(
+            "https://api.themoviedb.org/3/movie/popular?api_key=1469c0124feb2071e2822b7f4023b656&language=en-US&page=1"
+            )
+            .then((res) => res.json())
+            .then(data => {
+                console.log(data)
+                setResults(data);
+                setIsLoaded(true);
+            },
+            
+            (error) => {
+                setIsLoaded(true);
+                setError(error)
+            }
+            )
+    }, [])
+   
+
+
+    if (error) {
+        return <div>Error: {error.message}</div> 
+    } else if (!isLoaded) {
         return <div>Loading...</div>;
-    }else{
-        return (
-          <div className="Movies_section">
-            <h1>Fetching data</h1>
-            {items
-              ?.map((item) => {
+    } else {
+        
+       return (
+            <div className="Movies_section">
+            
+            {results.results.map(item => (
+                
                 <div className="movies">
-                  <h3 key={item.results}>{item.results}</h3>
-                  {/* <img key={item.backdrop_path}>{item.backdrop_path}</img>
-              <p key={item.overview}>{item.overview}</p>
-              <p key={item.release_date}>Release Date: {item.release_date} </p> */}
-                </div>;
-              })
-              .then(console.log(items.results[0].title))}
+                <img key={item.poster_path}src={"https://image.tmdb.org/t/p/w200" + item.poster_path} />
+                <h3 key={item.original_title}>{item.original_title}</h3>
+                {/* <p key={item.overview}>{item.overview}</p> */}
+                </div>
+            ) )}
+            
           </div>
-        );
+        )
     }
-  }
-}
+
+};
 
 export default Movies;

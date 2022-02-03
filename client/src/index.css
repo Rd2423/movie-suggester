@@ -83,3 +83,14 @@
     justify-content: center;
     margin-top: 25px;
 }
+
+.Movies_section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px
+}
+
+.movies {
+    
+}
