@@ -1,6 +1,9 @@
 import React from "react";
 import "../../index.css";
+import {Link} from 'react-router-dom';
+
 const image = require("../../img/film-reel.png");
+
 function Header() {
   return (
     <header className="header">
@@ -13,7 +16,7 @@ function Header() {
         <a href="">TV SHOWS</a>
       </div>
       <div className="header_right">
-          <a>Login</a>
+          <Link to="/login">Login</Link>
       </div>
     </header>
   );

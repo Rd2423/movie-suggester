@@ -1,12 +1,21 @@
-import Header from "./components/header/Header";
-import Movies from "./components/movies/Movies";
-import SearchBarInfo from './components/searchBarAndInfo/SearchBarInfo'
+import Home from './components/Home/Home'
+import LoginPage from "./components/login/Login";
+import Signup from './components/signup/signup';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
   return <div className="App">
-    <Header />
-    <SearchBarInfo />
-    <Movies />
+    <BrowserRouter>
+    <Routes>
+      <Route path="/login" element={<LoginPage/>} />
+      <Route path="/" element={<Home/>}/>
+      <Route path="/signup" element={<Signup/>}/>
+    </Routes>
+    </BrowserRouter>
 
     
   </div>;
