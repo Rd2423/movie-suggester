@@ -30,6 +30,7 @@ body {
   align-items: center;
 }
 .container {
+  display: inline-block;
   background-color: rgba(255, 255, 255, 0.781);
   width: 100%;
   border-radius: 10px;
@@ -38,8 +39,7 @@ body {
 
 .inputs {
   margin-right: 15px;
-  display: inline flex;
-  justify-content: center;
+  display: inline;
 }
 
 .container input {
@@ -54,7 +54,6 @@ body {
   margin-right: 20px;
   border-radius: 5px;
   box-shadow: 1px 1px cornflowerblue;
-  align-items: center;
   
 }
 
@@ -106,6 +105,7 @@ body {
   cursor: pointer;
   outline: none;
   transition: 0.2s all;
+  text-decoration: none;
 }
 
 .signupBtn:active {

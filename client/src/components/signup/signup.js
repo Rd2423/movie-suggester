@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 function Signup (){
     return (
         <div className="loginPage">
@@ -11,10 +11,10 @@ function Signup (){
                 <input placeholder="username" type="text"/>
                 <input placeholder="email" type="text"/>
                 <input placeholder="********" type="password"/>  
-                <button>Login</button>
+                <button>Enter</button>
                 </div>
                 <div className="signupBtn">
-                <a>Sign Up</a>
+                <Link to="/login">Login</Link>
                 </div>
             </div>
          </div>
