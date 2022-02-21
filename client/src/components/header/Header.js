@@ -11,9 +11,9 @@ function Header() {
         <img src={image} width="50" alt="movie icon"/>
       </div>
       <div className="header_middle">
-        <a href="">HOME</a>
-        <a href="">MOVIES</a>
-        <a href="">TV SHOWS</a>
+        <a href="/">HOME</a>
+        <a href="/">MOVIES</a>
+        
       </div>
       <div className="header_right">
           <Link to="/login">Login</Link>
