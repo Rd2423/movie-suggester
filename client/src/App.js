@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import LoginPage from "./pages/Login";
 import Signup from "./pages/Signup";
+import MyMovies from "./pages/MyMovies";
 import Header from "./components/header/Header";
 // import { render } from "react-dom";
 import {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/login" element={<LoginPage />}/>
             <Route path="/" element={<Home />} />
             <Route path="/signup"element={<Signup />} />
+            <Route path="/mymovies"element={<MyMovies />} />
           </Routes>
     
       </div>

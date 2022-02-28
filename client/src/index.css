@@ -17,7 +17,7 @@
   height: 150px;
   font-size: large;
   color: #eee;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .header_left {
@@ -36,7 +36,10 @@
   margin-right: 25px;
 }
 .header_right a {
+  margin-bottom: 10px;
   color: #eee;
+  display: flex;
+  justify-content: space-between;
 }
 /* search info */
 
@@ -101,20 +104,10 @@
   display: inline-block;
 }
 
-/* .loginPage {
+.TitleOfPage {
+  margin-top: 12px;
   display: flex;
-  border: 5px solid blue;
-  text-align: center;
-  align-items: center;
-  
-} */
-/* .container {
-    display: flex;
-  align-items: center;
   justify-content: center;
-  border: 5px solid blue;
-  text-align: center;
-  align-items: center;
-  height: fit-content;
-  width: fit-content;
-} */
+  color: #eee;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
