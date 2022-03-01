@@ -1,11 +1,21 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { useState, useEffect } from "react";
+import { useMutation } from "@apollo/client";
+import { saveMovieIds, getSavedMovieIds } from "../../utils/localStorage";
+import {SAVE_MOVIE} from '../../utils/mutation'
 import "../../index.css";
 function Movies() {
-  const [error, setError] = useState(null);
+  const [saveMovie, {error}] = useMutation(SAVE_MOVIE);
+  const [savedMovieIds, setSavedMovieIds] = useState(getSavedMovieIds());
+  const [err, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [results, setResults] = useState("");
+  useEffect(() => {
+    return () => saveMovieIds(savedMovieIds);
+  })
+
+
   useEffect(() => {
     fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=1469c0124feb2071e2822b7f4023b656&language=en-US&page=1"
@@ -18,15 +28,15 @@ function Movies() {
           setIsLoaded(true);
         },
 
-        (error) => {
+        (err) => {
           setIsLoaded(true);
-          setError(error);
+          setError(err);
         }
       );
   }, []);
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>Error: {err.message}</div>;
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
