@@ -3,18 +3,17 @@ import Auth from "../../utils/auth";
 import { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { saveMovieIds, getSavedMovieIds } from "../../utils/localStorage";
-import {SAVE_MOVIE} from '../../utils/mutation'
+import { SAVE_MOVIE } from "../../utils/mutation";
 import "../../index.css";
-function Movies() {
-  const [saveMovie, {error}] = useMutation(SAVE_MOVIE);
-  const [savedMovieIds, setSavedMovieIds] = useState(getSavedMovieIds());
+function Movies(props) {
+  const [saveMovie, { error }] = useMutation(SAVE_MOVIE);
+  const [savedMovieIds, setSavedMovieIds] = useState([]);
   const [err, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [results, setResults] = useState("");
-  useEffect(() => {
-    return () => saveMovieIds(savedMovieIds);
-  })
-
+  // useEffect(() => {
+  //   return () => saveMovieIds(savedMovieIds);
+  // });
 
   useEffect(() => {
     fetch(
@@ -23,7 +22,11 @@ function Movies() {
       .then((res) => res.json())
       .then(
         (data) => {
-          console.log(data);
+          // const MovieId = data.results.map((movie) => ({
+          //   movieID: movie.id,
+          // }));
+          // console.log(MovieId);
+          // console.log(data);
           setResults(data);
           setIsLoaded(true);
         },
@@ -34,6 +37,27 @@ function Movies() {
         }
       );
   }, []);
+  // const handleSaveMovie = async (movieid) => {
+  //   const movieToSave = movieid.results.map((movie) =>({
+  //     movie: movie.id
+  //   }));
+  //   console.log(movieToSave)
+  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+  //   if(!token){
+  //     return false;
+  //   }
+  //   try {
+  //     const {data} = await saveMovie ({
+  //       variables: {input: movieToSave}
+  //     })
+  //     if (error) {
+  //       throw new Error('something went wrong!');
+  //     }
+  //     setSavedMovieIds([...savedMovieIds, movieToSave.movieid])
+  //   }catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   if (error) {
     return <div>Error: {err.message}</div>;
@@ -52,7 +76,13 @@ function Movies() {
                 />
                 <h3 key={item.original_title}>{item.original_title}</h3>
                 <p key={item.overview}>{item.overview}</p>
-                <button>Save</button>
+                {/* <button 
+                // disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === item.id)}
+                // onClick={() => handleSaveMovie(item.id)}
+                >
+                  
+                  Save
+                </button> */}
               </div>
             ))}
           </>
