@@ -4,7 +4,7 @@ function SearchInfo(props) {
   
 
   return (
-    <div>
+    <div className= "ssearch">
       <div className="searchInfo">
         <div className="searchBar">
           <input

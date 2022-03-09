@@ -19,10 +19,10 @@ function LoginPage(props) {
     event.preventDefault();
 
     try {
-      const {data} = await login({
+      const { data } = await login({
         variables: { ...formState },
       });
-      if(error) {
+      if (error) {
         throw new Error("something went wrong");
       }
       Auth.login(data.login.token);

@@ -11,9 +11,6 @@ function Movies(props) {
   const [err, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [results, setResults] = useState("");
-  // useEffect(() => {
-  //   return () => saveMovieIds(savedMovieIds);
-  // });
 
   useEffect(() => {
     fetch(
@@ -22,11 +19,6 @@ function Movies(props) {
       .then((res) => res.json())
       .then(
         (data) => {
-          // const MovieId = data.results.map((movie) => ({
-          //   movieID: movie.id,
-          // }));
-          // console.log(MovieId);
-          // console.log(data);
           setResults(data);
           setIsLoaded(true);
         },
@@ -37,27 +29,6 @@ function Movies(props) {
         }
       );
   }, []);
-  // const handleSaveMovie = async (movieid) => {
-  //   const movieToSave = movieid.results.map((movie) =>({
-  //     movie: movie.id
-  //   }));
-  //   console.log(movieToSave)
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
-  //   if(!token){
-  //     return false;
-  //   }
-  //   try {
-  //     const {data} = await saveMovie ({
-  //       variables: {input: movieToSave}
-  //     })
-  //     if (error) {
-  //       throw new Error('something went wrong!');
-  //     }
-  //     setSavedMovieIds([...savedMovieIds, movieToSave.movieid])
-  //   }catch (err) {
-  //     console.error(err);
-  //   }
-  // };
 
   if (error) {
     return <div>Error: {err.message}</div>;
@@ -65,42 +36,47 @@ function Movies(props) {
     return <div>Loading...</div>;
   } else {
     return (
-      <div className="Movies_section">
-        {Auth.loggedIn() ? (
-          <>
-            {results.results.map((item) => (
-              <div className="movies">
-                <img
-                  key={item.poster_path}
-                  src={"https://image.tmdb.org/t/p/w200" + item.poster_path}
-                />
-                <h3 key={item.original_title}>{item.original_title}</h3>
-                <p key={item.overview}>{item.overview}</p>
-                {/* <button 
+      <>
+        <div className="popular">
+          <h1>Popular Movies</h1>
+        </div>
+        <div className="Movies_section">
+          {Auth.loggedIn() ? (
+            <>
+              {results.results.map((item) => (
+                <div className="movies">
+                  <img
+                    key={item.poster_path}
+                    src={"https://image.tmdb.org/t/p/w200" + item.poster_path}
+                  />
+                  <h3 key={item.original_title}>{item.original_title}</h3>
+                  <p key={item.overview}>{item.overview}</p>
+                  {/* <button 
                 // disabled={savedMovieIds?.some((savedMovieId) => savedMovieId === item.id)}
                 // onClick={() => handleSaveMovie(item.id)}
                 >
                   
                   Save
                 </button> */}
-              </div>
-            ))}
-          </>
-        ) : (
-          <>
-            {results.results.map((item) => (
-              <div className="movies">
-                <img
-                  key={item.poster_path}
-                  src={"https://image.tmdb.org/t/p/w200" + item.poster_path}
-                />
-                <h3 key={item.original_title}>{item.original_title}</h3>
-                <p key={item.overview}>{item.overview}</p>
-              </div>
-            ))}
-          </>
-        )}
-      </div>
+                </div>
+              ))}
+            </>
+          ) : (
+            <>
+              {results.results.map((item) => (
+                <div className="movies">
+                  <img
+                    key={item.poster_path}
+                    src={"https://image.tmdb.org/t/p/w200" + item.poster_path}
+                  />
+                  <h3 key={item.original_title}>{item.original_title}</h3>
+                  <p key={item.overview}>{item.overview}</p>
+                </div>
+              ))}
+            </>
+          )}
+        </div>
+      </>
     );
   }
 }

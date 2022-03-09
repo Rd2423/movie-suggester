@@ -41,12 +41,12 @@ function Signup() {
   return (
     <>
       <div className="loginPage">
-          <div className="container">
-            <div className="containerh1">
-              <h1>Sign up</h1>
-            </div>
-            <div className="inputs">
-        <form onSubmit={handleFormSubmit}>
+        <div className="container">
+          <div className="containerh1">
+            <h1>Sign up</h1>
+          </div>
+          <div className="inputs">
+            <form onSubmit={handleFormSubmit}>
               <input
                 placeholder="username"
                 type="username"
@@ -68,12 +68,12 @@ function Signup() {
                 onChange={handleChange}
               />
               <button type="submit">Enter</button>
-        </form>
-            </div>
-            <div className="signupBtn">
-              {/* <Link to="/login">Login Instead</Link> */}
-            </div>
+            </form>
           </div>
+          <div className="signupBtn">
+            {/* <Link to="/login">Login Instead</Link> */}
+          </div>
+        </div>
       </div>
     </>
   );
