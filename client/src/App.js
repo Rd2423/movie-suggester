@@ -14,7 +14,7 @@ import { setContext } from "@apollo/client/link/context";
 import {  BrowserRouter as Router, Routes,  Route} from "react-router-dom";
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
   credentials: 'same-origin'
 });
 
