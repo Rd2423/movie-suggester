@@ -4,8 +4,8 @@
   "description": "Backend of moviesuggester",
   "main": "server.js",
   "scripts": {
+    "star": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
     "watch": "nodemon"
   },
   "author": "Rayan Diouf",
