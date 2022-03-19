@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "main.js",
   "dependencies": {
     "apollo-server-express": "^3.6.4",
     "bcrypt": "^5.0.1",
