@@ -4,7 +4,7 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "main.js",
   "scripts": {
-    "start": "node server/main.js",
+    "start": "nodemon server/main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\""
   },
@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/Rd2423/movie-suggester#readme",
   "devDependencies": {
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
   },
   "dependencies": {}
 }
